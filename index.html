@@ -13,14 +13,14 @@
   <a class="brand-logo-link" href="https://ddt95.github.io/atlas-territorial-95/" aria-label="Retour à l’Atlas territorial"><img class="brand-logo" src="assets/prefet-val-doise.svg" alt="Préfet du Val-d’Oise"></a>
   <div class="title-block"><span class="eyebrow">NATURE · ADAPTATION · VAL-D’OISE</span><h1>Où le vivant résiste-t-il ?</h1><p>Continuités écologiques, eau et refuges potentiels de fraîcheur racontés par la carte</p></div>
   <button id="mobileLayers" class="mobile-layers" aria-controls="layerSidebar" aria-expanded="false">Données</button>
-  <button id="openDataTop" class="livebox"><span class="fresh-dot"></span><div><strong>Données & portrait</strong><small>Lecture du territoire sélectionné</small></div></button>
+  <button id="openDataTop" class="livebox"><span class="fresh-dot"></span><div><strong>Données & évolutions</strong><small>Portrait du territoire sélectionné</small></div></button>
 </header>
 <main class="workspace">
   <aside id="layerSidebar" class="sidebar" aria-label="Choix du territoire et des lectures">
     <div class="sidebar-intro"><div><span class="eyebrow">LECTURE CARTOGRAPHIQUE</span><h2>Suivre les appuis du vivant</h2><p>Choisissez une commune ou un EPCI pour repérer ses réservoirs, ses connexions et ses ressources de fraîcheur.</p></div></div>
     <label class="search-box"><span id="territorySearchLabel">Rechercher une commune</span><div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div></label>
     <div id="searchResults" class="search-results" hidden></div>
-    <div class="quick-actions"><button id="resetView">Recentrer</button><button id="openData">Données & portrait</button></div>
+    <div class="quick-actions"><button id="resetView">Recentrer</button><button id="openData">Données & évolutions</button></div>
     <section class="territory-mode" aria-label="Échelle d’analyse"><span>ÉCHELLE D’ANALYSE</span><div class="territory-mode-grid">
       <button type="button" class="territory-mode-card active" data-scale="commune" aria-pressed="true"><i class="mode-switch"></i><span><b>Communes</b><small>183 communes</small></span><em class="mode-color commune"></em></button>
       <button type="button" class="territory-mode-card" data-scale="epci" aria-pressed="false"><i class="mode-switch"></i><span><b>EPCI</b><small>Intercommunalités du 95</small></span><em class="mode-color epci"></em></button>
@@ -36,7 +36,7 @@
       <button class="layer-card" data-layer="water_density"><i class="layer-swatch water"></i><span><b>Présence de l’eau</b><small>Km de cours d’eau par km²</small></span><i class="layer-switch"></i></button>
       <button class="layer-card" data-layer="freshness"><i class="layer-swatch freshness"></i><span><b>Appuis de fraîcheur</b><small>Lecture croisée végétation + eau</small></span><i class="layer-switch"></i></button>
     </div></div>
-    <button id="openMethod" class="sources-inline">Comprendre la carte, les sources et les limites</button>
+    <button id="openMethod" class="sources-inline">Sources, millésimes et licences</button>
     <div class="sidebar-footer"><span class="fresh-dot"></span><div><strong>7 référentiels publics croisés</strong><small>IGN · INPN · Région Île-de-France · ARB</small></div></div>
   </aside>
   <section class="map-shell" aria-label="Carte interactive"><div id="map"></div>
@@ -52,5 +52,5 @@
   <h3>Sources</h3><ul><li>IGN BD TOPO — zones de végétation et réseau hydrographique.</li><li>INPN / PatriNat — ZNIEFF et espaces naturels protégés.</li><li>Région Île-de-France / Institut Paris Region — connexions écologiques du SDRIF-E.</li><li>GeoNat’îdF / ARB Île-de-France — observations agrégées par maille.</li><li>IGN / État — limites communales, COG 2026.</li></ul>
   <div class="source-cards"><div class="source-card"><h3>Données et méthode</h3><p>Millésimes, licences, traitements et précautions sont documentés dans le dépôt.</p><a href="SOURCES.md" target="_blank">Consulter les sources ↗</a></div><div class="source-card"><h3>Code source</h3><p>Application et données versionnées, librement consultables.</p><a href="https://github.com/DDT95/val-doise-nature-adaptation" target="_blank" rel="noopener">Voir le dépôt ↗</a></div></div>
 </div></dialog>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="js/app.js?v=2"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="js/app.js?v=3"></script>
 </body></html>

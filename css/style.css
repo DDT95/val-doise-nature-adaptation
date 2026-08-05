@@ -203,5 +203,6 @@ input[type="range"]{width:100%;accent-color:var(--blue)}
 .profile-link{background:var(--nature);color:#fff}.profile-link:hover{background:var(--nature-dark)}
 .kpi-tile{border-top-color:#4b9d66}.kpi-tile.warn{border-top-color:#bc7624}
 .nature-tooltip{font-family:Marianne,Arial,sans-serif;background:#0e3c24;color:#fff;border:0;border-radius:10px;box-shadow:0 8px 22px #0003}.nature-tooltip:before{border-top-color:#0e3c24}
+.property>span{display:block;margin-top:4px;color:var(--muted);font-size:9px}
 .choropleth-legend .ramp{background:linear-gradient(90deg,#eff6ec,#39784d)}
 .pulse{display:inline-block}
