@@ -8,7 +8,7 @@ const metrics={
  water_density:{title:'Densité du réseau hydrographique',unit:' km/km²',colors:['#eef7f9','#b9dbe5','#6eafc7','#24779e'],note:'Longueur de cours d’eau rapportée à la surface du territoire.',value:p=>p.water_density},
  freshness:{title:'Appuis potentiels de fraîcheur',unit:'',colors:['#f4f5e9','#c6d9a7','#78ad7a','#26706b'],note:'Lecture relative croisant végétation et eau ; ce n’est pas une température mesurée.',value:p=>p.freshness_score}
 };
-const map=L.map('map',{zoomControl:false,preferCanvas:true}).setView([49.08,2.15],10);L.control.zoom({position:'topright'}).addTo(map);
+const map=L.map('map',{zoomControl:true,preferCanvas:true,minZoom:7,maxZoom:15}).setView([49.08,2.15],10);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map);
 
 function withScores(profiles){const vals=Object.values(profiles),maxWater=Math.max(...vals.map(p=>p.water_density),1);vals.forEach(p=>{p.freshness_score=.7*(p.vegetation_pct/100)+.3*Math.min(1,p.water_density/maxWater)});return profiles}
