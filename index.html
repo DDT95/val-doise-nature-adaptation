@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Où le vivant résiste-t-il dans le Val-d’Oise ? Continuités écologiques, eau et refuges potentiels de fraîcheur.">
+<title>Nature · adaptation · Val-d’Oise · DDT 95</title>
+<link rel="preconnect" href="https://tile.openstreetmap.org">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand-logo-link" href="https://ddt95.github.io/atlas-territorial-95/" aria-label="Retour à l’Atlas territorial"><img class="brand-logo" src="assets/prefet-val-doise.svg" alt="Préfet du Val-d’Oise"></a>
+  <div class="title-block"><span class="eyebrow">NATURE · ADAPTATION · VAL-D’OISE</span><h1>Où le vivant résiste-t-il ?</h1><p>Continuités écologiques, eau et refuges potentiels de fraîcheur racontés par la carte</p></div>
+  <button id="mobileLayers" class="mobile-layers" aria-controls="layerSidebar" aria-expanded="false">Données</button>
+  <button id="openDataTop" class="livebox"><span class="fresh-dot"></span><div><strong>Données & portrait</strong><small>Lecture du territoire sélectionné</small></div></button>
+</header>
+<main class="workspace">
+  <aside id="layerSidebar" class="sidebar" aria-label="Choix du territoire et des lectures">
+    <div class="sidebar-intro"><span class="section-number">01</span><div><span class="eyebrow">LECTURE CARTOGRAPHIQUE</span><h2>Suivre les appuis du vivant</h2><p>Choisissez un territoire puis une lecture pour repérer ses réservoirs, ses connexions et ses ressources de fraîcheur.</p></div></div>
+    <label class="search-box"><span id="territorySearchLabel">Rechercher une commune</span><div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div></label>
+    <div id="searchResults" class="search-results" hidden></div>
+    <div class="quick-actions"><button id="resetView">Recentrer</button><button id="openData">Données & portrait</button></div>
+    <section class="territory-mode" aria-label="Échelle d’analyse"><span>ÉCHELLE D’ANALYSE</span><div class="territory-mode-grid">
+      <button type="button" class="territory-mode-card active" data-scale="commune" aria-pressed="true"><i class="mode-switch"></i><span><b>Communes</b><small>183 communes</small></span><em class="mode-color commune"></em></button>
+      <button type="button" class="territory-mode-card" data-scale="epci" aria-pressed="false"><i class="mode-switch"></i><span><b>EPCI</b><small>Intercommunalités du 95</small></span><em class="mode-color epci"></em></button>
+    </div></section>
+    <div class="layer-group"><span>LE VIVANT</span><div class="layer-cards">
+      <button class="layer-card active" data-layer="vegetation_pct"><i class="layer-swatch vegetation"></i><span><b>Couvert végétalisé</b><small>Bois, forêts, landes et vergers</small></span><i class="layer-switch"></i></button>
+      <button class="layer-card" data-layer="reservoir_pct"><i class="layer-swatch reservoir"></i><span><b>Réservoirs de nature</b><small>ZNIEFF et espaces protégés</small></span><i class="layer-switch"></i></button>
+    </div></div>
+    <div class="layer-group"><span>LES CONNEXIONS</span><div class="layer-cards">
+      <button class="layer-card" data-layer="connections"><i class="layer-swatch connection"></i><span><b>Continuités écologiques</b><small>Connexions régionales du SDRIF-E</small></span><i class="layer-switch"></i></button>
+    </div></div>
+    <div class="layer-group"><span>L’EAU ET LA FRAÎCHEUR</span><div class="layer-cards">
+      <button class="layer-card" data-layer="water_density"><i class="layer-swatch water"></i><span><b>Présence de l’eau</b><small>Km de cours d’eau par km²</small></span><i class="layer-switch"></i></button>
+      <button class="layer-card" data-layer="freshness"><i class="layer-swatch freshness"></i><span><b>Appuis de fraîcheur</b><small>Lecture croisée végétation + eau</small></span><i class="layer-switch"></i></button>
+    </div></div>
+    <button id="openMethod" class="sources-inline">Comprendre la carte, les sources et les limites</button>
+    <div class="sidebar-footer"><span class="fresh-dot"></span><div><strong>7 référentiels publics croisés</strong><small>IGN · INPN · Région Île-de-France · ARB</small></div></div>
+  </aside>
+  <section class="map-shell" aria-label="Carte interactive"><div id="map"></div>
+    <div id="mapLegend" class="map-legend"><strong></strong><div class="ramp"></div><div class="ramp-labels"><span></span><span></span></div><p></p></div>
+    <div class="map-note"><span class="pulse"></span><span id="mapStatus">Chargement des données…</span></div>
+  </section>
+  <aside id="detailPanel" class="detail-panel" aria-live="polite"><button id="closeDetail" class="close-btn" aria-label="Fermer">×</button><div id="detailContent"></div></aside>
+</main>
+<dialog id="methodDialog" class="dialog"><button class="dialog-close" data-close="methodDialog" aria-label="Fermer">×</button><div class="dialog-header"><span class="eyebrow">TRAÇABILITÉ</span><h2>Comprendre la carte</h2><p>Ce que racontent les données — et ce qu’elles ne permettent pas d’affirmer.</p></div><div class="dialog-body">
+  <h3>Trois lectures complémentaires</h3><p>Le couvert végétalisé décrit un support physique. Les réservoirs rassemblent les espaces inventoriés ou protégés. Les connexions signalent des continuités écologiques d’intérêt régional. Aucun de ces indicateurs ne constitue à lui seul une mesure exhaustive de la biodiversité.</p>
+  <h3>Appuis de fraîcheur</h3><p>Cette lecture croise la part végétalisée et la densité du réseau hydrographique. Elle repère un <strong>potentiel territorial</strong> : ce n’est ni une température mesurée, ni une carte réglementaire des îlots de chaleur.</p>
+  <h3>Comment lire la carte</h3><ul><li>Choisissez une lecture : une seule couleur thématique est affichée à la fois.</li><li>Survolez un territoire pour lire sa valeur ; cliquez pour ouvrir son portrait.</li><li>En mode EPCI, les données portent uniquement sur les communes val-d’oisiennes.</li><li>Une absence d’observation naturaliste ne signifie jamais une absence d’espèce.</li></ul>
+  <h3>Sources</h3><ul><li>IGN BD TOPO — zones de végétation et réseau hydrographique.</li><li>INPN / PatriNat — ZNIEFF et espaces naturels protégés.</li><li>Région Île-de-France / Institut Paris Region — connexions écologiques du SDRIF-E.</li><li>GeoNat’îdF / ARB Île-de-France — observations agrégées par maille.</li><li>IGN / État — limites communales, COG 2026.</li></ul>
+  <div class="source-cards"><div><h3>Données et méthode</h3><p>Millésimes, licences, traitements et précautions sont documentés dans le dépôt.</p><a href="SOURCES.md" target="_blank">Consulter les sources ↗</a></div><div><h3>Code source</h3><p>Application et données versionnées, librement consultables.</p><a href="https://github.com/DDT95/val-doise-nature-adaptation" target="_blank" rel="noopener">Voir le dépôt ↗</a></div></div>
+</div></dialog>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="js/app.js?v=1"></script>
+</body></html>
