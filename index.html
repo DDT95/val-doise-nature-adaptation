@@ -17,7 +17,7 @@
 </header>
 <main class="workspace">
   <aside id="layerSidebar" class="sidebar" aria-label="Choix du territoire et des lectures">
-    <div class="sidebar-intro"><span class="section-number">01</span><div><span class="eyebrow">LECTURE CARTOGRAPHIQUE</span><h2>Suivre les appuis du vivant</h2><p>Choisissez un territoire puis une lecture pour repérer ses réservoirs, ses connexions et ses ressources de fraîcheur.</p></div></div>
+    <div class="sidebar-intro"><div><span class="eyebrow">LECTURE CARTOGRAPHIQUE</span><h2>Suivre les appuis du vivant</h2><p>Choisissez une commune ou un EPCI pour repérer ses réservoirs, ses connexions et ses ressources de fraîcheur.</p></div></div>
     <label class="search-box"><span id="territorySearchLabel">Rechercher une commune</span><div><input id="searchInput" type="search" placeholder="Ex. Pontoise" autocomplete="off"><button id="searchButton" aria-label="Rechercher">→</button></div></label>
     <div id="searchResults" class="search-results" hidden></div>
     <div class="quick-actions"><button id="resetView">Recentrer</button><button id="openData">Données & portrait</button></div>
@@ -40,7 +40,7 @@
     <div class="sidebar-footer"><span class="fresh-dot"></span><div><strong>7 référentiels publics croisés</strong><small>IGN · INPN · Région Île-de-France · ARB</small></div></div>
   </aside>
   <section class="map-shell" aria-label="Carte interactive"><div id="map"></div>
-    <div id="mapLegend" class="map-legend"><strong></strong><div class="ramp"></div><div class="ramp-labels"><span></span><span></span></div><p></p></div>
+    <div id="mapLegend" class="choropleth-legend"><strong></strong><div class="ramp"></div><div class="ramp-labels"><span></span><span></span></div><p></p></div>
     <div class="map-note"><span class="pulse"></span><span id="mapStatus">Chargement des données…</span></div>
   </section>
   <aside id="detailPanel" class="detail-panel" aria-live="polite"><button id="closeDetail" class="close-btn" aria-label="Fermer">×</button><div id="detailContent"></div></aside>
@@ -50,7 +50,7 @@
   <h3>Appuis de fraîcheur</h3><p>Cette lecture croise la part végétalisée et la densité du réseau hydrographique. Elle repère un <strong>potentiel territorial</strong> : ce n’est ni une température mesurée, ni une carte réglementaire des îlots de chaleur.</p>
   <h3>Comment lire la carte</h3><ul><li>Choisissez une lecture : une seule couleur thématique est affichée à la fois.</li><li>Survolez un territoire pour lire sa valeur ; cliquez pour ouvrir son portrait.</li><li>En mode EPCI, les données portent uniquement sur les communes val-d’oisiennes.</li><li>Une absence d’observation naturaliste ne signifie jamais une absence d’espèce.</li></ul>
   <h3>Sources</h3><ul><li>IGN BD TOPO — zones de végétation et réseau hydrographique.</li><li>INPN / PatriNat — ZNIEFF et espaces naturels protégés.</li><li>Région Île-de-France / Institut Paris Region — connexions écologiques du SDRIF-E.</li><li>GeoNat’îdF / ARB Île-de-France — observations agrégées par maille.</li><li>IGN / État — limites communales, COG 2026.</li></ul>
-  <div class="source-cards"><div><h3>Données et méthode</h3><p>Millésimes, licences, traitements et précautions sont documentés dans le dépôt.</p><a href="SOURCES.md" target="_blank">Consulter les sources ↗</a></div><div><h3>Code source</h3><p>Application et données versionnées, librement consultables.</p><a href="https://github.com/DDT95/val-doise-nature-adaptation" target="_blank" rel="noopener">Voir le dépôt ↗</a></div></div>
+  <div class="source-cards"><div class="source-card"><h3>Données et méthode</h3><p>Millésimes, licences, traitements et précautions sont documentés dans le dépôt.</p><a href="SOURCES.md" target="_blank">Consulter les sources ↗</a></div><div class="source-card"><h3>Code source</h3><p>Application et données versionnées, librement consultables.</p><a href="https://github.com/DDT95/val-doise-nature-adaptation" target="_blank" rel="noopener">Voir le dépôt ↗</a></div></div>
 </div></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="js/app.js?v=1"></script>
 </body></html>
